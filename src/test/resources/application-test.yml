@@ -1,0 +1,32 @@
+# ── Test Profile ─────────────────────────────────────────────
+# Uses H2 in-memory database so tests run without MySQL.
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:smartlms_test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 25MB
+
+# JWT config for tests (64-character hexadecimal string = 256-bit key for HMAC-SHA256)
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration: 86400000
+
+logging:
+  level:
+    com.smartlms: WARN

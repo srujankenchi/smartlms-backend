@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: SmartLMS
+
+  # ── DataSource ──────────────────────────────────────────────
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:${DATABASE_URL:jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:smartlms}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull}}
+    username: ${SPRING_DATASOURCE_USERNAME:${DB_USERNAME:root}}
+    password: ${SPRING_DATASOURCE_PASSWORD:${DB_PASSWORD:root}}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # ── File Upload Configuration (for Assignment Submissions) ──
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 25MB
+
+  # ── JPA / Hibernate ────────────────────────────────────────
+  jpa:
+    hibernate:
+      ddl-auto: update          # Safe: creates/alters tables, never drops
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.MySQLDialect
+
+# ── Server ──────────────────────────────────────────────────
+server:
+  port: ${PORT:${SERVER_PORT:8008}}
+
+# ── JWT Configuration ───────────────────────────────────────
+jwt:
+  # 64-character hexadecimal string representing a 256-bit (32-byte) secret for HMAC-SHA256
+  secret: ${JWT_SECRET:404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970}
+  expiration: ${JWT_EXPIRATION:86400000}
+
+# ── Logging ─────────────────────────────────────────────────
+logging:
+  level:
+    com.smartlms: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.springframework.security: DEBUG
