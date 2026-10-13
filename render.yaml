@@ -10,9 +10,9 @@ services:
       - key: PORT
         value: 10000
       - key: SPRING_DATASOURCE_URL
-        sync: false
+        value: jdbc:mysql://mysql-1920431b-smartlms.a.aivencloud.com:11894/defaultdb?sslMode=REQUIRED&allowPublicKeyRetrieval=true&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
       - key: SPRING_DATASOURCE_USERNAME
-        sync: false
+        value: avnadmin
       - key: SPRING_DATASOURCE_PASSWORD
         sync: false
       - key: JWT_SECRET

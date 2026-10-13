@@ -4,9 +4,9 @@ spring:
 
   # ── DataSource ──────────────────────────────────────────────
   datasource:
-    url: ${SPRING_DATASOURCE_URL:${DATABASE_URL:jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:smartlms}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull}}
-    username: ${SPRING_DATASOURCE_USERNAME:${DB_USERNAME:root}}
-    password: ${SPRING_DATASOURCE_PASSWORD:${DB_PASSWORD:root}}
+    url: ${SPRING_DATASOURCE_URL:${DATABASE_URL:jdbc:mysql://${DB_HOST:mysql-1920431b-smartlms.a.aivencloud.com}:${DB_PORT:11894}/${DB_NAME:defaultdb}?sslMode=REQUIRED&allowPublicKeyRetrieval=true&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull}}
+    username: ${SPRING_DATASOURCE_USERNAME:${DB_USERNAME:avnadmin}}
+    password: ${SPRING_DATASOURCE_PASSWORD:${DB_PASSWORD:}}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   # ── File Upload Configuration (for Assignment Submissions) ──
